@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Tetris
 {
-    public class GameState
+    public class GameState//состаяние блоков на поле
     {
         private Block currentBlock;
 
@@ -58,29 +58,7 @@ namespace Tetris
             return true;
         }
 
-        public void HoldBlock()
-        {
-            if (!CanHold)
-            {
-                return;
-            }
-
-            if (HeldBlock == null)
-            {
-                HeldBlock = CurrentBlock;
-                CurrentBlock = BlockQueue.GetAndUpdate();
-            }
-            else
-            {
-                Block tmp = CurrentBlock;
-                CurrentBlock = HeldBlock;
-                HeldBlock = tmp;
-            }
-
-            CanHold = false;
-        }
-
-        public void RotateBlockCW()
+        public void RotateBlockCW()//повороты фигур блока
         {
             CurrentBlock.RotateCW();
 
@@ -100,7 +78,7 @@ namespace Tetris
             }
         }
 
-        public void MoveBlockLeft()
+        public void MoveBlockLeft()//задача направлений движений
         {
             CurrentBlock.Move(0, -1);
 

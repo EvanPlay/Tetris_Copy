@@ -33,7 +33,7 @@ namespace Tetris
             rotationState = (rotationState + 1) % Tiles.Length;
         }
 
-        public void RotateCCW()
+        public void RotateCCW()//если блок упривается в "препядствие", его разворачивает обратно
         {
             if (rotationState == 0)
             {

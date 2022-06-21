@@ -1,11 +1,4 @@
-﻿//    {
-//        public MainWindow()
-//        {
-//            InitializeComponent();
-//        }
-//    }
-//}
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -117,18 +110,6 @@ namespace Tetris
             NextImage.Source = blockImages[next.Id];
         }
 
-        //private void DrawHeldBlock(Block heldBlock)//Не работает
-        //{
-        //    if (heldBlock == null)
-        //    {
-        //        HoldImage.Source = blockImages[0];
-        //    }
-        //    else
-        //    {
-        //        HoldImage.Source = blockImages[heldBlock.Id];
-        //    }
-        //}
-
         //private void DrawGhostBlock(Block block)//Направления падения фигуры
         //{
         //    int dropDistance = gameState.BlockDropDistance();
@@ -166,7 +147,7 @@ namespace Tetris
             FinalScoreText.Text = $"Score: {gameState.Score}";
         }
 
-        private void Window_KeyDown(object sender, KeyEventArgs e)
+        private void Window_KeyDown(object sender, KeyEventArgs e)//Обозначение основных элементов управления
         {
             if (gameState.GameOver)
             {
@@ -187,12 +168,12 @@ namespace Tetris
                 case Key.Up:
                     gameState.RotateBlockCW();
                     break;
-                case Key.Z:
-                    gameState.RotateBlockCCW();
-                    break;
-                case Key.Space:
-                    gameState.DropBlock();
-                    break;
+                //case Key.Z:
+                //    gameState.RotateBlockCCW();
+                //    break;
+                //case Key.Space://кнопка разработчика
+                //    gameState.DropBlock();
+                //    break;
                 default:
                     return;
             }
